@@ -1,19 +1,19 @@
 #include "monty.h"
-
 /**
- * _pint -> Prints the value at the top of the stack
- * @stack: Stack
- * @line_number: Line Number
+ * f_pint - prints the top
+ * @head: stack head
+ * @counter: line_number
+ * Return: no return
 */
-
-void _pint(stack_t **stack, unsigned int line_number)
+void f_pint(stack_t **head, unsigned int counter)
 {
-	stack_t *num;
-
-	num = *stack;
-	if (num == NULL)
+	if (*head == NULL)
 	{
-		printf("L%d: can't pint, stack empty\n", line_number);
+		fprintf(stderr, "L%u: can't pint, stack empty\n", counter);
+		fclose(bus.file);
+		free(bus.content);
+		free_stack(*head);
 		exit(EXIT_FAILURE);
-	} printf("%d\n", num->n);
+	}
+	printf("%d\n", (*head)->n);
 }
